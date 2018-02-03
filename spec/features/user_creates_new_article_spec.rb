@@ -12,12 +12,14 @@ describe "user can create new article" do
         fill_in('Title', :with => "Cows")
         fill_in('Body', :with => "Cows are amazing creatures!")
         click_on('Create Article')
+        new_article = Article.find(1)
         # new_article = Article.find(1)
         #
         # expect(Article.count).to eq(1)
         # expect(current_path).to eq(article_path)
         expect(page).to have_content("Cows")
         expect(page).to have_content("Cows are amazing creatures!")
+        expect(page).to have_content("Article '#{new_article.title}' Created!")
       end
     end
   end

@@ -20,7 +20,7 @@ describe "user can edit an article" do
       expect(page).to_not have_content('title')
       expect(page).to_not have_content('body')
       expect(edited_article.title).to eq('Gorillas')
-      expect(page).to have_content("Article 'Gorillas' Updated!")
+      expect(page).to have_content("Article '#{edited_article.title}' Updated!")
     end
   end
 end
